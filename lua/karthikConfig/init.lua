@@ -1,3 +1,4 @@
-require("primeengine.remap")
-require("primeengine.set")
+require("karthikConfig.remap")
+require("karthikConfig.set")
+
 

@@ -1,1 +1,1 @@
-require("primeengine")
+require("karthikConfig")

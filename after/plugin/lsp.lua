@@ -3,7 +3,36 @@ require("mason-lspconfig").setup({
    ensure_installed = {"lua_ls"}
 })
 
+-- require('lspconfig').clangd.setup{
+--     cmd = { 'clangd', '--header-insertion=never', '--completion-style=detailed', '--background-index', '--clang-tidy', '--suggest-missing-includes', '--header-insertion-decorators=0', '--cross-file-rename', '--clang-tidy-checks=-*,clang-analyzer-*' },
+--     filetypes = { "c", "cpp" },
+--     root_dir = function(fname)
+--         return require('lspconfig').util.root_pattern('.git')(fname) or vim.fn.getcwd()
+--     end,
+--     settings = {
+--         clangd = {
+--             compileCommands = { "compile_commands.json" },
+--             extraArgs = { 
+--                 '-I /usr/local/include/opencv4/'
+--             }
+--         }
+--     }
+-- }
+-- local lspconfig = require("lspconfig")
+-- local nlspsettings = require("nlspsettings")
+
+-- nlspsettings.setup({
+--   config_home = vim.fn.stdpath('config') .. '/nlsp-settings',
+--   local_settings_dir = ".nlsp-settings",
+--   local_settings_root_markers_fallback = { '.git' },
+--   append_default_schemas = true,
+--   loader = 'json'
+-- })
+local global_capabilities = vim.lsp.protocol.make_client_capabilities()
+global_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 local lsp = require("lsp-zero")
+
 
 lsp.preset("recommended")
 
@@ -58,6 +87,7 @@ lsp.on_attach(function(client, bufnr)
 end)
 
 lsp.setup()
+
 
 vim.diagnostic.config({
     virtual_text = true

@@ -1,7 +1,7 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
---
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
@@ -48,6 +48,17 @@ return require('packer').startup(function(use)
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
     }
+
+    -- github theme
+    use({
+      'projekt0n/github-nvim-theme',
+      config = function()
+        require('github-theme').setup({
+          -- ...
+        })
+
+      end
+    })
     --comment
     use('tpope/vim-commentary');
 
@@ -58,4 +69,7 @@ return require('packer').startup(function(use)
     use('hrsh7th/vim-vsnip')
     use('hrsh7th/vim-vsnip-integ')
     use { "ellisonleao/gruvbox.nvim" }
+    -- Display images in vim
+    use('qaiviq/vim-imager')
+    use ('Civitasv/cmake-tools.nvim')
 end)

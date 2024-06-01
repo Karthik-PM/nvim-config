@@ -3,6 +3,9 @@ vim.cmd([[
     :set sessionoptions-=options
 ]])
 vim.opt.guicursor = ""
+-- local highlight = {
+-- local highlight = {
+-- local highlight = {
 
 vim.opt.nu = true
 vim.opt.relativenumber = true

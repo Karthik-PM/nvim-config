@@ -3,6 +3,7 @@ require("mason-lspconfig").setup({
    ensure_installed = {"lua_ls"}
 })
 
+require("luasnip.loaders.from_vscode").lazy_load()
 -- require('lspconfig').clangd.setup{
 --     cmd = { 'clangd', '--header-insertion=never', '--completion-style=detailed', '--background-index', '--clang-tidy', '--suggest-missing-includes', '--header-insertion-decorators=0', '--cross-file-rename', '--clang-tidy-checks=-*,clang-analyzer-*' },
 --     filetypes = { "c", "cpp" },

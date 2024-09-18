@@ -6,19 +6,21 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+    -- use 'wbthomason/packer.nvim'
+    use {'wbthomason/packer.nvim', opt = true}
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.1',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
-
-    use({ 
-        'rose-pine/neovim', as = 'rose-pine' ,
-        config = function()
-            vim.cmd('colorscheme rose-pine')
-        end
-    })
+    --
+    -- use({ 
+    --     'rose-pine/neovim', as = 'rose-pine' ,
+    --     config = function()
+    --         vim.cmd('colorscheme rose-pine')
+    --     end
+    -- })
+    -- --lsp
     use{
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
@@ -48,20 +50,14 @@ return require('packer').startup(function(use)
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
     }
-
-    -- github theme
-    use({
-      'projekt0n/github-nvim-theme',
-      config = function()
-        require('github-theme').setup({
-          -- ...
-        })
-
-      end
-    })
+    --
+    -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    --   require("toggleterm").setup()
+    -- end}
+    --
     --comment
     use('tpope/vim-commentary');
-
+    --
     use { 'neoclide/coc.nvim', branch='release' }
     use 'lervag/vimtex'
     use('nanozuki/tabby.nvim')
@@ -69,7 +65,12 @@ return require('packer').startup(function(use)
     use('hrsh7th/vim-vsnip')
     use('hrsh7th/vim-vsnip-integ')
     use { "ellisonleao/gruvbox.nvim" }
-    -- Display images in vim
-    use('qaiviq/vim-imager')
-    use ('Civitasv/cmake-tools.nvim')
+    -- -- Display images in vim
+    -- use('qaiviq/vim-imager')
+    -- use ('Civitasv/cmake-tools.nvim')
+    --
+    require('packer').startup(function()
+        use {'stevearc/vim-vscode-snippets'}
+    end)
+    use {'marko-cerovac/material.nvim'}
 end)

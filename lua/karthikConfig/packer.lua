@@ -50,11 +50,6 @@ return require('packer').startup(function(use)
         {'L3MON4D3/LuaSnip'},
         {'rafamadriz/friendly-snippets'},
     }
-    --
-    -- use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-    --   require("toggleterm").setup()
-    -- end}
-    --
     --comment
     use('tpope/vim-commentary');
     --
@@ -65,12 +60,13 @@ return require('packer').startup(function(use)
     use('hrsh7th/vim-vsnip')
     use('hrsh7th/vim-vsnip-integ')
     use { "ellisonleao/gruvbox.nvim" }
-    -- -- Display images in vim
-    -- use('qaiviq/vim-imager')
-    -- use ('Civitasv/cmake-tools.nvim')
-    --
+
     require('packer').startup(function()
         use {'stevearc/vim-vscode-snippets'}
     end)
+
     use {'marko-cerovac/material.nvim'}
+
+    use {"akinsho/toggleterm.nvim"}
+
 end)

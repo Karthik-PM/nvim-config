@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
-vim.keymap.set("n", '<leader>dt', "<cmd>!terminator --working-directory=%:p:h &<CR><CR>", { silent = true })
+vim.keymap.set("n", '<leader>dt', "<cmd>!terminator --working-directory=%:p:h &<CR>", { silent = true })
+vim.keymap.set("n", '<leader>dr', "<cmd>!terminator &<CR>", { silent = true })
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")

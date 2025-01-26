@@ -2,14 +2,14 @@
 
 -- Only required if you have packer configured as `opt`
 
+--@diagnostic disable: undefined-global, lowercase-global
 vim.cmd [[packadd packer.nvim]]
-
 return require('packer').startup(function(use)
     -- Packer can manage itself
     -- use 'wbthomason/packer.nvim'
-    use {'wbthomason/packer.nvim', opt = true}
+    use {'wbthomason/packer.nvim', opt=true}
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        'nvim-telescope/telescope.nvim', tag = '0.1.8',
         -- or                            , branch = '0.1.x',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
@@ -29,7 +29,9 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
     use('mbbill/undotree')
     use('tpope/vim-fugitive')
-    use('preservim/nerdtree')
+    -- use('preservim/nerdtree')
+
+    use "nvim-tree/nvim-tree.lua"
     use('lukas-reineke/indent-blankline.nvim')
     use{
         'VonHeikemen/lsp-zero.nvim',
@@ -56,17 +58,26 @@ return require('packer').startup(function(use)
     use { 'neoclide/coc.nvim', branch='release' }
     use 'lervag/vimtex'
     use('nanozuki/tabby.nvim')
-    use('ryanoasis/vim-devicons')
+    use 'bryanmylee/vim-colorscheme-icons'
+    use 'tiagofumo/vim-nerdtree-syntax-highlight'
+    use 'nvim-tree/nvim-web-devicons'
+    use 'Xuyuanp/nerdtree-git-plugin'  -- Git integration for NERDTree
     use('hrsh7th/vim-vsnip')
     use('hrsh7th/vim-vsnip-integ')
     use { "ellisonleao/gruvbox.nvim" }
-
-    require('packer').startup(function()
-        use {'stevearc/vim-vscode-snippets'}
-    end)
-
+    use {'stevearc/vim-vscode-snippets'}
     use {'marko-cerovac/material.nvim'}
-
     use {"akinsho/toggleterm.nvim"}
-
+    -- use ('DaikyXendo/nvim-material-icon')
+    use {'loctvl842/monokai-pro.nvim'}
+    -- vim status bar ( lua line )
+    use {
+      'nvim-lualine/lualine.nvim',
+      requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+    --themes
+    use { "scottmckendry/cyberdream.nvim" }
+    use 'navarasu/onedark.nvim'
+    use "goolord/alpha-nvim"
+    -- greeter starter
 end)

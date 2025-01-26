@@ -42,7 +42,7 @@ dashboard.section.header.val = {
 
  dashboard.section.buttons.val = {
    dashboard.button("f", "󰈞  Find file", ":Telescope find_files <CR>"),
-   dashboard.button("t", "󰙅  Open NERDTree", ":NERDTree <CR>"),
+   dashboard.button("t", "󰙅  Open NERDTree", ":NvimTreeOpen <CR>"),
    dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
    dashboard.button("c", "  Configuration", ":NERDTree ~/.config/nvim/<CR>"),
    dashboard.button("q", "󰠚  Quit Neovim", ":qa<CR>"),

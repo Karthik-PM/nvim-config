@@ -80,4 +80,6 @@ return require('packer').startup(function(use)
     use 'navarasu/onedark.nvim'
     use "goolord/alpha-nvim"
     -- greeter starter
+    -- AI Integration like curson
+    use "folke/which-key.nvim"
 end)

@@ -29,6 +29,7 @@ return require('lazy').setup({
         -- or                            , branch = '0.1.x',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
+
     --
     -- ({
     --     'rose-pine/neovim', as = 'rose-pine' ,
@@ -146,5 +147,12 @@ return require('lazy').setup({
                 ft = { "markdown", "Avante" },
             },
         },
+        {
+            'mvllow/modes.nvim',
+            tag = 'v0.2.1',
+            config = function()
+                require('modes').setup()
+            end
+        }
     }
 })

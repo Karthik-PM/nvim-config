@@ -2,6 +2,7 @@ vim.cmd([[
     :set clipboard+=unnamedplus
     :set sessionoptions-=options
 ]])
+
 vim.opt.guicursor = ""
 -- local highlight = {
 -- local highlight = {

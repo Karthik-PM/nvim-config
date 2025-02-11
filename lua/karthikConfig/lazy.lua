@@ -29,7 +29,7 @@ return require('lazy').setup({
         -- or                            , branch = '0.1.x',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
     },
-
+    'christoomey/vim-tmux-navigator',
     --
     -- ({
     --     'rose-pine/neovim', as = 'rose-pine' ,

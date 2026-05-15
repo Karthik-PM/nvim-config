@@ -41,7 +41,6 @@ return require('lazy').setup({
     {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
-        "neovim/nvim-lspconfig",
     },
     'mbbill/undotree',
     'tpope/vim-fugitive',
@@ -49,10 +48,6 @@ return require('lazy').setup({
 
     "nvim-tree/nvim-tree.lua",
     ('lukas-reineke/indent-blankline.nvim'),
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-    },
     {
         -- Autocompletion
         { 'hrsh7th/nvim-cmp' },
@@ -63,7 +58,16 @@ return require('lazy').setup({
         { 'hrsh7th/cmp-nvim-lua' },
 
     },
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
+    {"nvim-treesitter/nvim-treesitter", branch = "master", build = ":TSUpdate"},
+    {
+        "3rd/image.nvim",
+        build = false,
+        dependencies = { "nvim-lua/plenary.nvim" },
+    },
+    {
+        "nvim-telescope/telescope-media-files.nvim",
+        dependencies = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+    },
     {
         -- Snippets
         { 'L3MON4D3/LuaSnip' },
@@ -154,5 +158,42 @@ return require('lazy').setup({
                 require('modes').setup()
             end
         }
-    }
+    },
+    -- Jupyter notebook combo
+    {
+        "benlubas/molten-nvim",
+        version = "^1.0.0",
+        build = ":UpdateRemotePlugins",
+        dependencies = { "3rd/image.nvim" },
+        init = function()
+            vim.g.molten_image_provider = "image.nvim"
+            vim.g.molten_output_win_max_height = 20
+            vim.g.molten_auto_open_output = false
+            vim.g.molten_wrap_output = true
+            vim.g.molten_virt_text_output = true
+        end,
+    },
+    {
+        "GCBallesteros/jupytext.nvim",
+        lazy = false,
+        config = function()
+            require("jupytext").setup({
+                style = "hydrogen",
+                output_extension = "py",
+                force_ft = "python",
+            })
+        end,
+    },
+    {
+        "GCBallesteros/NotebookNavigator.nvim",
+        dependencies = {
+            "echasnovski/mini.comment",
+            "benlubas/molten-nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = function()
+            require("notebook-navigator").setup({ activate_hydra_keys = nil })
+        end,
+    },
+    { "echasnovski/mini.comment", version = "*" },
 })

@@ -71,6 +71,8 @@ Mason will install LSP servers automatically (`lua_ls`, `ts_ls`, `rust_analyzer`
 | [jupytext.nvim](https://github.com/GCBallesteros/jupytext.nvim) | `.ipynb` ↔ `.py` conversion |
 | [NotebookNavigator.nvim](https://github.com/GCBallesteros/NotebookNavigator.nvim) | Cell navigation and execution |
 | [avante.nvim](https://github.com/yetone/avante.nvim) | AI assistant (Cursor-like) |
+| [claudecode.nvim](https://github.com/coder/claudecode.nvim) | Claude Code terminal integration |
+| [snacks.nvim](https://github.com/folke/snacks.nvim) | Terminal UI (claudecode.nvim dependency) |
 | [toggleterm.nvim](https://github.com/akinsho/toggleterm.nvim) | Terminal integration |
 | [lualine.nvim](https://github.com/nvim-lualine/lualine.nvim) | Status line |
 | [vim-fugitive](https://github.com/tpope/vim-fugitive) | Git integration |
@@ -136,6 +138,22 @@ Leader key: `Space`
 | `<leader>mh` | Hide cell output |
 | `<leader>md` | Delete cell output |
 | `]h` / `[h` | Next / prev cell |
+
+### Claude Code
+
+Requires the [Claude Code CLI](https://claude.ai/code) to be installed (`npm install -g @anthropic-ai/claude-code`).
+
+| Key | Action |
+|---|---|
+| `<leader>ac` | Toggle Claude terminal |
+| `<leader>af` | Focus Claude terminal |
+| `<leader>ar` | Resume previous session |
+| `<leader>aC` | Continue last conversation |
+| `<leader>ab` | Add current buffer as context |
+| `<leader>as` (visual) | Send selected text to Claude |
+| `<leader>as` (in NvimTree) | Add file from tree as context |
+| `<leader>aa` | Accept diff |
+| `<leader>ad` | Deny diff |
 
 ### Completion (nvim-cmp)
 
